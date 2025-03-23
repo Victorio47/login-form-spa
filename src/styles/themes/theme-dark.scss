@@ -1,0 +1,27 @@
+@import '../variables/colors';
+
+[data-theme='dark'] {
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+
+  --color-bg-primary: #{$color-black};
+  --color-bg-secondary: #484d37;
+  --color-surface: #050504;
+
+  --color-text-primary: #{$color-white};
+  --color-text-secondary: #847c74;
+  --color-text-muted: #70778f;
+  --color-text-on-accent: #{$color-black};
+
+  --color-accent-green: #{$color-accent-green};
+  --color-accent-green-soft: #{$color-accent-dark-green};
+  --color-accent-brown: #{$color-accent-brown};
+  --color-accent-dark-green: #{$color-accent-dark-green};
+
+  --color-input-bg: #484d37;
+  --color-input-border: #847c74;
+  --color-input-border-focus: #{$color-accent-green};
+
+  --color-error: #cc293d;
+  --color-success: #{$color-success};
+}

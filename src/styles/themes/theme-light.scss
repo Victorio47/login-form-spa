@@ -1,0 +1,27 @@
+@import '../variables/colors';
+
+:root {
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+
+  --color-bg-primary: #{$color-bg-primary};
+  --color-bg-secondary: #{$color-bg-secondary};
+  --color-surface: #{$color-surface};
+
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-text-muted: #{$color-text-muted};
+  --color-text-on-accent: #{$color-text-on-accent};
+
+  --color-accent-green: #{$color-accent-green};
+  --color-accent-green-soft: #{$color-accent-green-soft};
+  --color-accent-brown: #{$color-accent-brown};
+  --color-accent-dark-green: #{$color-accent-dark-green};
+
+  --color-input-bg: #{$color-input-bg};
+  --color-input-border: #{$color-input-border};
+  --color-input-border-focus: #{$color-input-border-focus};
+
+  --color-error: #{$color-error};
+  --color-success: #{$color-success};
+}

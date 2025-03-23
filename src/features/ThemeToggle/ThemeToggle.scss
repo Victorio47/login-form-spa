@@ -1,0 +1,32 @@
+@import "@/styles/variables/colors";
+
+.toggle {
+  width: 42px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: $color-input-border;
+  border: 2px solid $color-accent-green;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.toggle__circle {
+  width: 18px;
+  height: 18px;
+  background-color: $color-white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle--checked {
+  background-color: $color-accent-green;
+
+  .toggle__circle {
+    transform: translateX(18px);
+  }
+}
