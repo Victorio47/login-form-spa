@@ -1,0 +1,33 @@
+@use "@/styles/variables/colors" as *;
+@use "@/styles/media" as *;
+
+[data-theme="dark"] {
+  --bg: #{$grey-800};
+  --border: #{$grey-600};
+  --border-autofill: #{$accent-blue};
+  --text: #{$white};
+  --form: #{$grey-600};
+  --error: #{$error};
+
+  --toggle: #{$grey-700};
+  --toggle-border: #{$grey-700};
+
+  --input-bg: #{$grey-800};
+  --input-border: #{$grey-600};
+  --input-border-hover: #{$grey-400};
+  --input-border-focus: #{$grey-300};
+  --input-placeholder: #{$grey-400};
+
+  --input-disabled-bg: #{$grey-700};
+  --input-disabled-text: #{$grey-500};
+  --input-disabled-border: #{$grey-600};
+
+  --button-bg: #{$grey-800};
+  --button-hover: #{$grey-700};
+  --button-active: #{$grey-500};
+  --button-border: #{$grey-500};
+  --button-text: #{$white};
+  --button-disabled-bg: #{$grey-100};
+  --button-disabled-border: #{$grey-300};
+  --button-disabled-text: #{$grey-500};
+}

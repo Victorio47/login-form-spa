@@ -1,9 +1,10 @@
 import { ThemeToggle, LoginForm } from "./features";
+import "@/styles/global.scss";    
+import "@/theme"; 
 
 function App() {
   return (
     <main>
-      <ThemeToggle />
       <LoginForm />
     </main>
   );

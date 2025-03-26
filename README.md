@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+# 🧪 Login Form — Минималистичная форма входа с темами, адаптивностью и доступностью
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✅ Правила использования
 
-Currently, two official plugins are available:
+Для успешного входа:  
+- **Email:** `admin@example.com`  
+- **Пароль:** `12345678`  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Неверные креды вызовут ошибку на поле `password` или глобальную ошибку отправки (`submit`).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Цели и приоритеты проекта
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+- **Подход "без библиотек"**  
+  Цель — показать мой подход к архитектуре, стилям и проработке UI вручную.  
+  Проект осознанно реализован без использования сторонних решений.  
+  📌 Если бы мы использовали библиотеки вроде `Formik`, `React Hook Form`, `Zod`, `Yup`, `Chakra UI`, `Tailwind`, время разработки можно было бы сильно сократить.  
+  Но детальная ручная реализация и была главной целью.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Минималистичный дизайн**  
+  Использована серая палитра и сдержанный интерфейс без лишней визуальной нагрузки.
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+- **Адаптивный интерфейс**  
+  Поддержка разрешений:  
+  `480px`, `640px`, `768px`, `1024px`, `1280px`
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+- **Темизация**  
+  Светлая и тёмная тема  
+  Адаптация по системной теме (`prefers-color-scheme`)  
+  Переключение темы через `<Toggle />`
+
+- **Компонентный подход**  
+  Используются глупые и умные компоненты  
+  `components` — переиспользуемые UI-блоки  
+  `features` — логические модули  
+  `hooks`, `styles` — поддержка архитектуры
+
+- **Система переменных**  
+  Используются SCSS переменные и CSS custom properties  
+  Темы формируются через кастомные токены
+
+- **Типографика**  
+  Используется адаптивная типографика с помощью SCSS mixins
+
+---
+
+
+
+## 📊 Lighthouse
+
+Lighthouse выдал **100/100** по всем метрикам (Performance, Accessibility, Best Practices, SEO) на сборке через `vite preview`.
+
+---
+
+## 📦 Как развернуть
+
+```bash
+# Установка
+npm install
+
+# Запуск в дев-режиме
+npm run dev
+
+# Билд
+npm run build
+
+# Превью после билда
+npm run preview

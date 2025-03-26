@@ -1,0 +1,58 @@
+.input {
+  @include textInput;
+
+  & {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+    @include textInput;
+  }
+
+  &::placeholder {
+    color: var(--input-placeholder);
+    opacity: 0.6;
+  }
+
+  &:hover {
+    border-color: var(--input-border-hover);
+  }
+
+  &:focus {
+    border-color: var(--input-border-focus);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: var(--input-disabled-bg);
+    color: var(--input-disabled-text);
+    cursor: not-allowed;
+    border-color: var(--input-disabled-border);
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    border: 1px solid var(--border-autofill, var(--border));
+    transition: background-color 0s;
+  }
+
+  @include mediaMobile {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  @include mediaSquare {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  &_error {
+    border-color: $error;
+    animation: shake 0.25s ease-in-out;
+  }
+}

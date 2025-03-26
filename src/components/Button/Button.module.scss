@@ -1,0 +1,44 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
+  color: var(--button-text);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s, border-color 0.2s;
+  @include textButton;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  &:active {
+    background-color: var(--button-active);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @include mediaSquare {
+    width: 100%;
+  }
+
+  &_fullWidth {
+    width: 100%;
+  }
+  &_error {
+    border: 1px solid $error;
+  }
+  &_disabled {
+    background-color: var(--button-disabled-bg);
+    border-color: var(--button-disabled-border);
+    color: var(--button-disabled-text);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

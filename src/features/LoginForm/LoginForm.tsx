@@ -1,90 +1,74 @@
-import { useState } from "react";
-import { InputField, PasswordField } from "../../components";
+import { useRef } from "react";
+import { EmailField } from "./EmailField";
+import { PasswordField } from "./PasswordField";
+import { ThemeToggle } from "@/features";
+import { Button } from "@/components";
+import { useFocusTrap, useFormValidation } from "@/hooks";
+import styles from "./LoginForm.module.scss";
 
 export const LoginForm = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
-    {}
-  );
-  const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  useFocusTrap(formRef);
 
-  const validate = () => {
-    const nextErrors: typeof errors = {};
-    if (!form.email) nextErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(form.email))
-      nextErrors.email = "Invalid email";
-
-    if (!form.password) nextErrors.password = "Password is required";
-    else if (form.password.length < 6)
-      nextErrors.password = "Password too short";
-
-    setErrors(nextErrors);
-    return Object.keys(nextErrors).length === 0;
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
-  };
-
-  const handleBlur = () => {
-    validate();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    setSubmitting(true);
-    setMessage("");
-    try {
-      await fakeFetch(form.email, form.password);
-      setMessage("Login successful!");
-    } catch (err) {
-      setErrors({ password: "Invalid credentials" });
-    } finally {
-      setSubmitting(false);
-    }
-  };
+  const {
+    form,
+    errors,
+    submitting,
+    message,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useFormValidation({ email: "", password: "" });
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <InputField
-        label="Email"
-        name="email"
-        type="email"
-        value={form.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={errors.email}
-        autoComplete="email"
-        required
-      />
+    <main className={styles.loginForm}>
+      <h1 id="login-form-title" className={styles.loginForm__title}>
+        Sign in
+      </h1>
+      <div className={styles.loginForm__form}>
+        <form
+          ref={formRef}
+          onSubmit={(e) => handleSubmit(e, () => {})}
+          noValidate
+          aria-labelledby="login-form-title"
+        >
+          <EmailField
+            label="Email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={errors.email}
+          />
 
-      <PasswordField
-        label="Password"
-        name="password"
-        value={form.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={errors.password}
-      />
-
-      <button type="submit" disabled={submitting}>
-        {submitting ? "Logging in..." : "Log In"}
-      </button>
-
-      {message && <div role="status">{message}</div>}
-    </form>
+          <PasswordField
+            label="Password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={errors.password}
+          />
+          <Button disabled={submitting} type="submit">
+            {submitting ? "Logging in..." : "Sign in"}
+          </Button>
+          <div className={styles.loginForm__messageWrap}>
+            {message && (
+              <div
+                className={styles.loginForm__message}
+                role="status">
+                  {message}
+              </div>
+            )}
+            {errors?.submit && (
+              <div className={styles.loginForm__error} role="alert">
+                {errors.submit}
+              </div>
+            )}
+          </div>
+          <ThemeToggle />
+        </form>
+      </div>
+    </main>
   );
 };
-
-const fakeFetch = (email: string, password: string) =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email === "admin@example.com" && password === "12345678")
-        resolve("OK");
-      else reject(new Error("Wrong creds"));
-    }, 1000);
-  });

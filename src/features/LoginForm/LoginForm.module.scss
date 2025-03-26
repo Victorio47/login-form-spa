@@ -1,0 +1,62 @@
+
+@use "@/styles/media" as *;
+
+
+.loginForm {
+  max-width: 480px;
+  margin: 0 auto;
+
+  &__messageWrap {
+    height: 18px;
+  }
+
+  &__message {
+    color: $success;
+  }
+
+  &__error {
+    color: $error;
+  }
+
+  &__title {
+    @include textHeading;
+    @include mediaSquare {
+      padding-left: 20px;
+      margin: 32px 0;
+    }
+    & {
+      padding-left: 28px;
+      margin: 22px 0;
+    }
+
+  }
+
+  &__form {
+    background-color: var(--form);
+    border: 1px solid var(--border);
+    padding: 28px;
+    border-radius: 8px;
+    form {
+      display: flex;
+      flex-direction: column; 
+      gap: 16px;
+    }
+    @include mediaSquare {
+      padding: 0 20px;
+      border-radius: 0;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+
+  @include mediaDesktop {
+    max-width: 420px;
+  }
+
+  @include mediaSquare {
+    max-width: 100%;
+    height: 100vh;
+  }
+}

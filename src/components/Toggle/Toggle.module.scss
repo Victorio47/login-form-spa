@@ -1,42 +1,29 @@
 .toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--color-text-primary);
+  justify-content: flex-start;
+  width: 42px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--toggle);
+  border: 1px solid var(--toggle-border);
+  padding: 2px;
   cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 
-  &__switch {
-    position: relative;
-    width: 42px;
-    height: 24px;
-    background-color: var(--color-input-border);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 20px;
-      height: 20px;
-      background-color: var(--color-white);
-      border-radius: 50%;
-      transition: transform 0.3s;
-    }
+  &__circle {
+    width: 18px;
+    height: 18px;
+    background-color: $white;
+    border-radius: 50%;
+    border: 1px solid var(--toggle-border);
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
-  &--checked &__switch {
-    background-color: var(--color-accent-green);
-
-    &::after {
+  &_checked {
+    background-color: var(--toggle);
+    .toggle__circle {
       transform: translateX(18px);
     }
-  }
-
-  &__label {
-    user-select: none;
   }
 }

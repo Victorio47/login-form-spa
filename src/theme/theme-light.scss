@@ -1,0 +1,33 @@
+@use "@/styles/variables/colors" as *;
+@use "@/styles/media" as *;
+
+:root {
+  --bg: #{$white};
+  --border: #{$grey-300};
+  --border-autofill: #{$accent-blue};
+  --text: #{$black};
+  --error: #{$black};
+  --form: #{$grey-100};
+  --error: #{$error};
+
+  --toggle: #{$grey-200};
+  --toggle-border: #{$grey-300};
+
+  --input-bg: #{$white};
+  --input-border: #{$grey-300};
+  --input-border-hover: #{$grey-400};
+  --input-border-focus: #{$grey-500};
+  --input-placeholder: #{$grey-500};
+  --input-disabled-bg: #{$grey-100};
+  --input-disabled-text: #{$grey-500};
+  --input-disabled-border: #{$grey-300};
+
+  --button-bg: #{$grey-100};
+  --button-hover: #{$grey-200};
+  --button-active: #{$grey-300};
+  --button-border: #{$grey-400};
+  --button-text: #{$grey-900};
+  --button-disabled-bg: #{$grey-100};
+  --button-disabled-border: #{$grey-300};
+  --button-disabled-text: #{$grey-500};
+}
