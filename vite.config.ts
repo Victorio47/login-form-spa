@@ -8,6 +8,7 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default defineConfig({
+  base: '/login-form-spa/',
   plugins: [react(), svgr()],
   resolve: {
     alias: {
