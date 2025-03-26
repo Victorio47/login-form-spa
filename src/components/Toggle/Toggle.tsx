@@ -4,28 +4,20 @@ import styles from "./Toggle.module.scss";
 type ToggleProps = {
   checked: boolean;
   onChange: () => void;
-  ariaLabel?: string;
+  ariaLabel: string;
 };
 
 export const Toggle = ({ checked, onChange, ariaLabel }: ToggleProps) => {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === " " || e.key === "Enter") {
-      e.preventDefault();
-      onChange();
-    }
-  };
-
   return (
-    <div
-      className={clsx(styles.toggle, checked && styles.toggle_checked)}
+    <button
+      type="button"
       role="switch"
       aria-checked={checked}
-      tabIndex={0}
+      aria-label={ariaLabel}
+      className={clsx(styles.toggle, checked && styles.toggle_checked)}
       onClick={onChange}
-      onKeyDown={handleKeyDown}
-      aria-label={ariaLabel ?? "Toggle dark mode"}
     >
-      <div className={styles.toggle__circle} />
-    </div>
+      <span className={styles.toggle__circle} aria-hidden="true" />
+    </button>
   );
 };

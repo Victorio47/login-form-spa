@@ -17,10 +17,10 @@ export const ThemeToggle = () => {
       <Toggle
         checked={theme === "dark"}
         onChange={() => setThemeState(theme === "light" ? "dark" : "light")}
-        ariaLabel="Toggle theme"
+        ariaLabel={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       />
       <span id={labelId} aria-live="polite">
-        {theme === "dark" ? "🌙" : "☀️"}
+        {theme === "dark" ? "🌙" : "☀️"}  
       </span>
       <span className={styles.themeToggle_visuallyHidden}>
         {theme === "dark" ? "Dark Mode" : "Light Mode"}

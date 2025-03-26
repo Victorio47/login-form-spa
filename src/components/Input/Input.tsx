@@ -19,7 +19,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       describedBy,
       required,
       autoComplete = "off",
-      inputMode = "text",
       spellCheck = false,
       ...rest
     },
@@ -35,7 +34,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         aria-describedby={describedBy}
         aria-required={required}
         autoComplete={autoComplete}
-        inputMode={inputMode}
         spellCheck={spellCheck}
         required={required}
         {...rest}
