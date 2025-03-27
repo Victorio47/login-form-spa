@@ -13,7 +13,7 @@ export const useFormValidation = (initialValues) => {
         if (!fields.password)
             nextErrors.password = "Password is required";
         else if (fields.password.length < 6)
-            nextErrors.password = "Password too short";
+            nextErrors.password = "Password is too short";
         return nextErrors;
     };
     const handleChange = (e) => {

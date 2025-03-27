@@ -21,7 +21,7 @@ export const useFormValidation = (initialValues: FormFields) => {
     else if (!/\S+@\S+\.\S+/.test(fields.email)) nextErrors.email = "Invalid email";
 
     if (!fields.password) nextErrors.password = "Password is required";
-    else if (fields.password.length < 6) nextErrors.password = "Password too short";
+    else if (fields.password.length < 6) nextErrors.password = "Password is too short";
 
     return nextErrors;
   };
@@ -43,7 +43,7 @@ export const useFormValidation = (initialValues: FormFields) => {
 
     if (name === "password") {
       if (!value) error = "Password is required";
-      else if (value.length < 6) error = "Password too short";
+      else if (value.length < 6) error = "Password is too short";
     }
 
     setErrors((prev) => ({ ...prev, [name]: error || undefined }));
