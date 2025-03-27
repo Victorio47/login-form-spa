@@ -34,7 +34,7 @@ export const useFormValidation = (initialValues) => {
             if (!value)
                 error = "Password is required";
             else if (value.length < 6)
-                error = "Password too short";
+                error = "Password is too short";
         }
         setErrors((prev) => ({ ...prev, [name]: error || undefined }));
     };
